@@ -1,0 +1,15 @@
+OS:
+	1. https://youtu.be/FaILnmUYS_U
+	2. https://www.cs.bham.ac.uk/~exr/lectures/opsys/10_11/lectures/os-dev.pdf
+	3. http://mikeos.sourceforge.net/write-your-own-os.html
+	4. https://youtube.com/playlist?list=PLm3B56ql_akNcvH8vvJRYOc7TbYhRs19M
+	5. https://youtube.com/playlist?list=PLZQftyCk7_SeZRitx5MjBKzTtvk0pHMtp
+	6. https://www.patreon.com/file?h=55409989&i=8744772
+	7. https://web.archive.org/web/20200117221638/http://www.osdever.net/bkerndev/Docs/idt.htm
+	8. https://forum.osdev.org/index.php
+	9. https://www.codeproject.com/Articles/1225196/Create-Your-Own-Kernel-In-C-2
+	10. http://www.osdever.net/bkerndev/Docs/title.htm
+
+Minecraft:
+	1. https://kremlin.cc/k&r.pdf
+	2. https://youtube.com/playlist?list=PLrOv9FMX8xJE8NgepZR1etrsU63fDDGxO
