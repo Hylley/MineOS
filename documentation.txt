@@ -9,6 +9,12 @@ OS:
 	8. https://forum.osdev.org/index.php
 	9. https://www.codeproject.com/Articles/1225196/Create-Your-Own-Kernel-In-C-2
 	10. http://www.osdever.net/bkerndev/Docs/title.htm
+	11. http://www.brackeen.com/vga/
+	12. http://www.columbia.edu/~em36/wpdos/videomodes.txt
+	13. https://wiki.osdev.org/Drawing_In_Protected_Mode
+	14. http://un.uobasrah.edu.iq/lectures/8108.pdf
+	15. https://stackoverflow.com/questions/56066333/how-to-draw-a-pixel-through-video-memory-using-c
+	16. https://upload.wikimedia.org/wikipedia/commons/4/49/VGA_palette.svg
 
 Minecraft:
 	1. https://kremlin.cc/k&r.pdf
