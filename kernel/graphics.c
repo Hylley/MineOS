@@ -26,6 +26,9 @@ void draw_line(int starter_point[], int ending_point[], int color)
 {
 	//		For this function, allow me to adopt the convention:
 	// array[0] -> [x position] and array[1] -> [y position]
+	//
+	// It basicaly create a line based on two given position using
+	// Bresenham's line drawing algorithm (search for more info).
 
 	int distance[] = {ending_point[0] - starter_point[0], ending_point[1] - starter_point[1]};
 	int distance_absolute[] = {absolute(distance[0]), absolute(distance[1])};

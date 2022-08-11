@@ -5,7 +5,7 @@ extern void start()
 	int background_color = 0;
 	int line_color = 15;
 
-	int point1[] = {160, 0};
+	int point1[] = {SCREEN_WIDTH/2, SCREEN_HEIGHT/2};
 	int point2[] = {0, 0};
 
 	while(1)

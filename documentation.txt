@@ -13,9 +13,10 @@ OS:
 	12. http://www.columbia.edu/~em36/wpdos/videomodes.txt
 	13. https://wiki.osdev.org/Drawing_In_Protected_Mode
 	14. http://un.uobasrah.edu.iq/lectures/8108.pdf
-	15. https://stackoverflow.com/questions/56066333/how-to-draw-a-pixel-through-video-memory-using-c
+	15. https://stackoverflow.s'com/questions/56066333/how-to-draw-a-pixel-through-video-memory-using-c
 	16. https://upload.wikimedia.org/wikipedia/commons/4/49/VGA_palette.svg
 
 Minecraft:
 	1. https://kremlin.cc/k&r.pdf
 	2. https://youtube.com/playlist?list=PLrOv9FMX8xJE8NgepZR1etrsU63fDDGxO
+	3. 

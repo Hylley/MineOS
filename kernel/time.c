@@ -2,7 +2,7 @@
 
 void tick()
 {
-	previus_time = current_time;
-	current_time ++;
-	delta_time = current_time - previus_time;
+	previus_time = time;
+	time ++;
+	delta_time = time - previus_time;
 }
