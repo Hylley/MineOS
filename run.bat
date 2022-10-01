@@ -12,7 +12,7 @@ ld -o objects\kernel.pe -Ttext 0x1000 objects\kernel_entry.o objects\kernel.o
 objcopy -O binary objects\kernel.pe binaries\kernel.bin
 
 @echo - Creating OS binary file...
-copy /b binaries\boot_sector.bin + binaries\kernel.bin + binaries\zeroes.bin binaries\OS.bin
+copy /b binaries\boot_sector.bin + binaries\kernel.bin + binaries\zeroes.bin OS.bin
 
 @echo - Executing...
-qemu-system-x86_64 binaries\OS.bin
+qemu-system-x86_64 OS.bin
