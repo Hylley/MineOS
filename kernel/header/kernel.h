@@ -3,5 +3,6 @@
 
 #include "../graphics.c"
 #include "../time.c"
+#include "../IDT.c"
 
 #endif

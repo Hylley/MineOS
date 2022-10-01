@@ -2,7 +2,11 @@
 ; question to load the kernel and run visual graphics, so I just
 ; go back to the 16 bit real mode using VGA. Feel free to judge me.
 
-
+;	So, future Hylley here.
+; I
+; FREAKING
+; DID
+; IT
 
 [org 0x7c00]	; Start from the "0x7c00" memory location.
 
