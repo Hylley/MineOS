@@ -1,6 +1,6 @@
 #include "header/kernel.h"
 
-extern void start()
+extern void kernel()
 {
 	int background_color = 0;
 	int line_color = 15;
@@ -10,11 +10,9 @@ extern void start()
 
 	while(1)
 	{
-		tick(); // Tick the time module to calculate [delta_time];
-
 		fill(background_color);
-		point2[0] += 1 * delta_time;
-		point2[1] += 1 * delta_time;
+		point2[0] += 1;
+		point2[1] += 1;
 		draw_line(point1, point2, line_color);
 	}
 

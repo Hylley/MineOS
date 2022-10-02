@@ -8,8 +8,8 @@ lidt[_idtp]
 
 ; KERNEL START
 
-[extern _start] ; For some reason, the GCC compiler add a "_" in front of every function it compiles.
-call _start
+[extern _kernel] ; For some reason, the GCC compiler add a "_" in front of every function it compiles.
+call _kernel
 
 
 jmp $

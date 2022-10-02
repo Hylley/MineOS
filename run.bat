@@ -1,9 +1,10 @@
 @echo off
 
-cd C:\Projects\MineOS
+if not exist "binaries\" mkdir "binaries"
+if not exist "objects\" mkdir "objects"
 
 @echo - Compiling boot sector...
-nasm boot_sector_pm.asm -f bin -o binaries\boot_sector.bin
+nasm boot_sector.asm -f bin -o binaries\boot_sector.bin
 
 @echo - Compiling kernel...
 gcc -ffreestanding -m32 -g -c kernel\kernel.c -o objects\kernel.o
