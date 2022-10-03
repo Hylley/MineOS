@@ -5,7 +5,7 @@ OS:
 	4. https://youtube.com/playlist?list=PLm3B56ql_akNcvH8vvJRYOc7TbYhRs19M
 	5. https://youtube.com/playlist?list=PLZQftyCk7_SeZRitx5MjBKzTtvk0pHMtp
 	6. https://www.patreon.com/file?h=55409989&i=8744772
-	7. https://web.archive.org/web/20200117221638/http://www.osdever.net/bkerndev/Docs/idt.htm
+	7. http://www.osdever.net/bkerndev/Docs/idt.htm
 	8. https://forum.osdev.org/index.php
 	9. https://www.codeproject.com/Articles/1225196/Create-Your-Own-Kernel-In-C-2
 	10. http://www.osdever.net/bkerndev/Docs/title.htm
@@ -15,6 +15,8 @@ OS:
 	14. http://un.uobasrah.edu.iq/lectures/8108.pdf
 	15. https://stackoverflow.s'com/questions/56066333/how-to-draw-a-pixel-through-video-memory-using-c
 	16. https://upload.wikimedia.org/wikipedia/commons/4/49/VGA_palette.svg
+	17. https://github.com/nanobyte-dev/nanobyte_os
+	18. http://www.osdever.net/bkerndev/Docs/isrs.htm
 
 Minecraft:
 	1. https://kremlin.cc/k&r.pdf

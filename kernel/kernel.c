@@ -11,8 +11,8 @@ extern void kernel()
 	while(1)
 	{
 		fill(background_color);
-		point2[0] += 1;
-		point2[1] += 1;
+		point2[0] -= 1;
+		point2[1] -= 1;
 		draw_line(point1, point2, line_color);
 	}
 
