@@ -16,7 +16,8 @@ OS:
 	15. https://stackoverflow.s'com/questions/56066333/how-to-draw-a-pixel-through-video-memory-using-c
 	16. https://upload.wikimedia.org/wikipedia/commons/4/49/VGA_palette.svg
 	17. https://github.com/nanobyte-dev/nanobyte_os
-	18. http://www.osdever.net/bkerndev/Docs/isrs.htm
+	18. https://github.com/mell-o-tron/MellOs/
+	19. http://www.osdever.net/bkerndev/Docs/isrs.htm
 
 Minecraft:
 	1. https://kremlin.cc/k&r.pdf

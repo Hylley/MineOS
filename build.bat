@@ -1,19 +1,20 @@
 @echo off
 
-if not exist "binaries\" mkdir "binaries"
-if not exist "objects\" mkdir "objects"
+if not exist ".bin\" mkdir ".bin"
+if not exist ".obj\" mkdir ".obj"
 
 @echo - Compiling boot sector...
-nasm boot_sector.asm -f bin -o binaries\boot_sector.bin
+nasm bootloader\boot.asm -f bin -o .bin\boot_sector.bin
 
 @echo - Compiling kernel...
-gcc -ffreestanding -m32 -g -c kernel\kernel.c -o objects\kernel.o
-nasm kernel_entry.asm -f elf -o objects\kernel_entry.o
-ld -o objects\kernel.pe -Ttext 0x1000 objects\kernel_entry.o objects\kernel.o
-objcopy -O binary objects\kernel.pe binaries\kernel.bin
+gcc -ffreestanding -m32 -g -c kernel\kernel.c -o .obj\kernel.o
+nasm bridge\kernel_bridge.asm -f elf -o .obj\kernel_entry.o
+ld -o .obj\kernel.pe -Ttext 0x1000 .obj\kernel_entry.o .obj\kernel.o
+objcopy -O binary .obj\kernel.pe .bin\kernel.bin
+nasm bridge\filler.asm -f bin -o .bin\filler.bin
 
-@echo - Creating OS binary file...
-copy /b binaries\boot_sector.bin + binaries\kernel.bin + binaries\zeroes.bin OS.bin
+@echo - Creating OS .binary file...
+copy /b .bin\boot_sector.bin + .bin\kernel.bin + .bin\filler.bin OS.bin
 
 @echo - Executing...
 qemu-system-x86_64 OS.bin
