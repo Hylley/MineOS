@@ -1,15 +1,13 @@
-#include "kernel.h"
-#include "utils\types.h"
+#include "headers\debug.h"
+#include "headers\idt.h"
+#include "headers\isr.h"
 
-#include "drivers\vga\graphics.c"
-#include "cpu\interrupts\idt.c"
-
-extern void start()
+extern void kernel()
 {
-    
-}
+    idt_install();
+    isr_install();
 
-extern void kpanic(struct regs *r)
-{
+    print("Sou lindo");
+
     return;
 }

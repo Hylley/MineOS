@@ -1,20 +1,45 @@
 @echo off
-
 if not exist ".bin\" mkdir ".bin"
 if not exist ".obj\" mkdir ".obj"
 
-@echo - Compiling boot sector...
-nasm bootloader\boot.asm -f bin -o .bin\boot_sector.bin
+:: Compile boot sector
+@echo ~# Compiling boot sector assembly
+nasm -f bin bootloader\bootsector.asm -o .bin\bootsector.bin
 
-@echo - Compiling kernel...
-gcc -ffreestanding -m32 -g -c kernel\kernel.c -o .obj\kernel.o
-nasm bridge\kernel_bridge.asm -f elf -o .obj\kernel_entry.o
-ld -o .obj\kernel.pe -Ttext 0x1000 .obj\kernel_entry.o .obj\kernel.o
+:: Compile kernel
+@echo ~# Compiling kernel files and bridging bootloader
+
+:: Compile all kernel source files to an object file. This is necessary to link it
+:: to the bridge assembly file.
+gcc -ffreestanding -m32 -g -c kernel\kernel.c -o .obj\kernel_source.o       &:: This is the main kernel source file
+gcc -ffreestanding -m32 -g -c kernel\idt.c -o .obj\idt.o                    &:: This is the IDT install file, important!
+gcc -ffreestanding -m32 -g -c kernel\isr.c -o .obj\isr.o                    &:: ISR management system
+gcc -ffreestanding -m32 -g -c kernel\memory.c -o .obj\memory.o              &:: Memory management
+gcc -ffreestanding -m32 -g -c kernel\debug.c -o .obj\debug.o                &:: Useful debug & testing functions
+
+:: Compile the bridge.asm file also to an object file.
+nasm bootloader\bridge.asm -f elf -o .obj\bridge.o
+
+@echo ~# Linking files
+:: Then link all .obj files into one temporary .pe kernel file, so only then...
+ld -o .obj\kernel.pe -Ttext 0x1000^
+    .obj\bridge.o^
+    .obj\kernel_source.o^
+    .obj\memory.o^
+    .obj\idt.o^
+    .obj\isr.o^
+    .obj\debug.o
+
+:: ...convert into a full object kernel file (idk why, but ld only works this way in my machine)
 objcopy -O binary .obj\kernel.pe .bin\kernel.bin
-nasm bridge\filler.asm -f bin -o .bin\filler.bin
 
-@echo - Creating OS .binary file...
-copy /b .bin\boot_sector.bin + .bin\kernel.bin + .bin\filler.bin OS.bin
+@echo ~# Piecing together
 
-@echo - Executing...
-qemu-system-x86_64 OS.bin
+:: Compile the zeroes assembly file (to prevent disk errors in the future)
+if not exist ".bin\zeroes.bin" @echo ~# Compiling empty disk space & nasm bootloader\zeroes.asm -f bin -o .bin\zeroes.bin
+
+:: Finaly, the full OS binary.
+@echo ~# Generatinh OS binary file
+copy /b .bin\bootsector.bin + .bin\kernel.bin + .bin\zeroes.bin OS.bin
+
+IF NOT "%1."=="." run.bat

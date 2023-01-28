@@ -1,7 +1,14 @@
-enter_protected_mode:
-	cli
-	lgdt[gdt_descriptor]
-	mov eax, cr0
-	or al, 0x01
-	mov cr0, eax
-	jmp CODE_SEG:_main32
+[bits 32]
+protected_mode:
+    ; Segments registers and stack setup;
+    mov ax, DATA_SEG
+    mov ds, ax
+    mov ss, ax
+    mov es, ax
+    mov fs, ax
+    mov gs, ax
+    mov ebp, 0x90000
+    mov esp, ebp
+
+    ; Jump to kernel.
+    jmp KERNEL_LOCATION

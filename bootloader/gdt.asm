@@ -1,25 +1,62 @@
-CODE_SEG equ gdt_code - gdt_start
-DATA_SEG equ gdt_data - gdt_start
+; ---------- / Global Descriptor Table / ----------
 
-gdt_start:
-gdt_null:
-	dd 0x00
-	dd 0x00
-gdt_code:
-	dw 0xFFFF
-	dw 0x00
-	db 0x00
-	db 10011010b
-	db 11001111b
-	db 0x00
-gdt_data:
-	dw 0xFFFF
-	dw 0x00
-	db 0x00
-	db 10010010b
-	db 11001111b
-	db 0x00
-gdt_end:
-gdt_descriptor:
-	dw gdt_end - gdt_start - 1
-	dd gdt_start
+; "equ" is used to define constants and capslock is the convention.
+CODE_SEG equ code_descritor - GDT
+DATA_SEG equ data_descritor - GDT
+
+lgdt[GDT_descriptor]
+
+; This pack of code change the last bit of cr0 to 1 (it can't be changed directly,
+; so we need to pass the value of a general purpose register.
+mov eax, cr0
+or eax, 1
+mov cr0, eax
+
+; The "far jump" is a jump to another segment wich activates the 32 bit protected mode.
+jmp CODE_SEG:protected_mode
+jmp $
+
+GDT:
+    ; At the beginning of every GDT there's must be an empty descriptor with
+    ; eight null (0) bytes.
+    null_descriptor:
+        dd 0
+        dd 0
+    
+    code_descritor:
+        ; The limit of our descriptor, 0xf is the maximum value;
+        dw 0xffff
+
+        ; 16 bits (define word - dw) + 8 bits (define byte - db) = 24 bits of the base.
+        dw 0
+        db 0
+
+        ; Presence, privilege and type and type flags.
+        db 10011010b
+
+        ; Other flags + limit (last 4 bits).
+        db 11001111b
+
+        ; Last 8 bits.
+        db 0
+    
+    data_descritor:
+        dw 0xffff
+        dw 0
+        db 0
+        db 10010010b
+        db 11001111b
+        db 0
+    
+    gdt_end:
+
+GDT_descriptor:
+    ; Set the full size of the GDT.
+    dw gdt_end - GDT - 1
+
+    ; Set the beginning of the GDT.
+    dd GDT
+
+; ---------- / End of Global Descriptor Table / ----------
+
+%include "bootloader\\protected_mode.asm"
