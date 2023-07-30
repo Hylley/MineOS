@@ -10,5 +10,7 @@ protected_mode:
     mov ebp, 0x90000
     mov esp, ebp
 
+    mov eax, DATA_SEG
+
     ; Jump to kernel.
     jmp KERNEL_LOCATION

@@ -27,9 +27,9 @@ mov dh, 0x00
 mov dl, [BOOT_DISK]
 int 0x13
 
-; Enter teletype mode to clean the screen
+; Enter 16-color mode to clean the screen
 mov ah, 0x0
-mov al, 0x3
+mov al, 0x13
 int 0x10
 
 ; / --- Protected mode ----------------------------------------------/

@@ -2,7 +2,7 @@
 [extern _kernel]
 call _kernel
 
-jmp $ ; In case of errors
+jmp $
 
 ; Activate the IDT mapping, a small extension of the IDT C file at kernel.
 ; %include "bootloader\\IDT.asm"

@@ -1,17 +1,21 @@
-void print(char *str)
-{
-    int i = 0;
-
-    while (str[i] != 0)
-    {
-        *(char *)(0xb8000 + i * 2) = str[i];
-        i++;
-    }
-}
+#include "headers\graphic.h"
+#include "headers\random.h"
+#include "headers\time.h"
+#include "headers\math.h"
 
 extern void kernel()
 {
-	print("Sou lindo");
+	// Generate pseudo-random white dots.
+	for(unsigned int y = 0; y < GRAPHIC_HEIGHT; y++)
+	{
+		for(unsigned int x = 0; x < GRAPHIC_WIDTH; x++)
+		{
+			tick();
+			plot(position(x, y), 15 * (lcg(x * y * time) < 32000 / 10));
+		}
+	}
+
+	
 
 	return;
 }
