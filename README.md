@@ -1,2 +1,2 @@
 # MineOS
- An OS written from scratch JUST to run Minecraft.
+ An OS written from scratch

@@ -1,13 +1,17 @@
-#include "headers\debug.h"
-#include "headers\idt.h"
-#include "headers\isr.h"
+void print(char *str)
+{
+    int i = 0;
+
+    while (str[i] != 0)
+    {
+        *(char *)(0xb8000 + i * 2) = str[i];
+        i++;
+    }
+}
 
 extern void kernel()
 {
-    idt_install();
-    isr_install();
+	print("Sou lindo");
 
-    print("Sou lindo");
-
-    return;
+	return;
 }
