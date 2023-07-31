@@ -15,3 +15,16 @@ void plot(int position, int color)
 	unsigned char *location =(unsigned char*)GRAPHIC_MEMORY + position;
 	*location  = color;
 }
+
+unsigned int grab(int position)
+{
+	return *(unsigned char*)GRAPHIC_MEMORY + position;
+}
+
+unsigned int safe_grab(int x, int y)
+{
+	if(!in_range(x, y))
+		return 0;
+	
+	return grab(position(x, y));
+}

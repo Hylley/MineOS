@@ -8,3 +8,5 @@ unsigned int position(int x, int y);
 int in_range(int x, int y);
 
 void plot(int position, int color);
+unsigned int grab(int position);
+unsigned int safe_grab(int x, int y);
